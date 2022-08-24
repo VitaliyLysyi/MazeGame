@@ -10,11 +10,11 @@ namespace CodeBase
 
             if (TempAxis != 0)
             {
-                Rotate(TempAxis);
+                rotate(TempAxis);
             }
         }
 
-        public void Rotate(float angle)
+        public void rotate(float angle)
         {
             float tempSpeed = 25f;
             Vector3 rotation = angle * tempSpeed * Time.deltaTime * Vector3.up;

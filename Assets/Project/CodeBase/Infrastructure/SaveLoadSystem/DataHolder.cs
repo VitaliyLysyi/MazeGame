@@ -12,13 +12,12 @@ namespace CodeBase.Infrastructure.SaveLoadSystem
         {
             string directoryPath = Application.dataPath + DATA_FOLDER;
             string fileName = typeof(T).ToString() + FILE_FORMAT;
-            string json = JsonUtility.ToJson(data);
+            string json = JsonUtility.ToJson(data, true);
 
             createDirectoryIfNeeded(directoryPath);
 
             File.WriteAllText(directoryPath + fileName, json);
         }
-
 
         public static bool Load<T>(out T data) where T : class
         {

@@ -30,7 +30,5 @@ namespace CodeBase.Menu
         {
             _game.StateMachine.Enter<LoadLevelState, string>(SceneName.GAMEPLAY);
         }
-
-
     }
 }

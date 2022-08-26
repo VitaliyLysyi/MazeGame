@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m-rings
+  m_Name: m-rings-3
   m_Shader: {fileID: -6465566751694194690, guid: bf9e8ec6a61367b488162d8b93118585,
     type: 3}
   m_ValidKeywords: []
@@ -74,6 +74,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -104,18 +108,25 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _Oclussion: 0
     - _Parallax: 0.02
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Saturation: 1
+    - _ShadowSmooth: 0.182
+    - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Threthhold: 0.15
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - Color_110F841B: {r: 0.5660378, g: 0.31204647, b: 0, a: 1}
     - Color_174F2E0A: {r: 0.9245283, g: 0.6391348, b: 0.29218578, a: 1}
     - Color_AF927EDB: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.57254905, g: 0.29803923, b: 0.2784314, a: 1}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadowColor: {r: 0.49056602, g: 0.2036937, b: 0.1689213, a: 1}
   m_BuildTextureStacks: []

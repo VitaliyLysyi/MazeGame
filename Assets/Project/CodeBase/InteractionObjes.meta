@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Project/CodeBase/InteractionObjes.meta
 guid: e6bae64f5bc278f4ead68a1af609f457
+========
+guid: 0a56c4d119328f244abd1a2d1d61c47e
+>>>>>>>> 937d93859a26e8cc4f72f837318d306a7d4f9495:Assets/Data.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

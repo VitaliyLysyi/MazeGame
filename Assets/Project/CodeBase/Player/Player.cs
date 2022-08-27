@@ -4,18 +4,17 @@ namespace CodeBase
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField] private MazeSegment _mazeSegment;
+        [SerializeField] private bool _debugInput;
 
+        private IMovable _currentMovable;
         private Joystick _joystick;
         private Ball _mainBall;
-        private IMovable _currentMovable;
 
         public void init(Joystick joystick, Ball ball)
         {
             _joystick = joystick;
             _mainBall = ball;
-            //_currentMovable = _mazeSegment;
-            _currentMovable = _mainBall;
+            setNewMovable(_mainBall);
         }
 
         private void Update()
@@ -24,17 +23,51 @@ namespace CodeBase
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                _currentMovable = _mainBall;
+                setNewMovable(_mainBall);
             }
         }
 
         private void moveCharacter()
         {
-            //float horixontalAxis = _joystick.Horizontal;
-            //float verticalAxis = _joystick.Vertical;
-            float horixontalAxis = Input.GetAxis("Horizontal");
-            float verticalAxis = Input.GetAxis("Vertical");
+            float horixontalAxis;
+            float verticalAxis;
+
+            if (_debugInput)
+            {
+                horixontalAxis = Input.GetAxis("Horizontal");
+                verticalAxis = Input.GetAxis("Vertical");
+            }
+            else
+            {
+                horixontalAxis = _joystick.Horizontal;
+                verticalAxis = _joystick.Vertical;
+            }
             _currentMovable.move(horixontalAxis, verticalAxis);
+        }
+
+        public void setNewMovable(IMovable movable)
+        {
+            if (movable == _currentMovable)
+            {
+                return;
+            }
+
+            if (_currentMovable is Ball)
+            {
+                Ball ball = _currentMovable as Ball;
+                ball.onBeginInteract -= beginInteraction;
+            }
+
+            _currentMovable = movable;
+            if (_currentMovable is Ball)
+            {
+                Ball ball = _currentMovable as Ball;
+                ball.onBeginInteract += beginInteraction;
+            }
+        }
+        private void beginInteraction(IInteractable interactable)
+        {
+            interactable.interact(this);
         }
     }
 }

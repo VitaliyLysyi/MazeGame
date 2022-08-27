@@ -8,7 +8,7 @@ namespace CodeBase
 
         public void move(float horizontal, float vertical)
         {
-            Vector3 rotation = horizontal * ROTATION_SPEED * Time.deltaTime * Vector3.up;
+            Vector3 rotation = horizontal * ROTATION_SPEED * Time.deltaTime * Vector3.forward;
             transform.Rotate(rotation);
         }
     }

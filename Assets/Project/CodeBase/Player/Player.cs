@@ -4,35 +4,37 @@ namespace CodeBase
 {
     public class Player : MonoBehaviour
     {
+        [SerializeField] private MazeSegment _mazeSegment;
+
         private Joystick _joystick;
-        private Ball _ball;
+        private Ball _mainBall;
+        private IMovable _currentMovable;
 
         public void init(Joystick joystick, Ball ball)
         {
             _joystick = joystick;
-            _ball = ball;
+            _mainBall = ball;
+            //_currentMovable = _mazeSegment;
+            _currentMovable = _mainBall;
         }
 
         private void Update()
         {
-            //ballControll();
-            tempBallControll();
+            moveCharacter();
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _currentMovable = _mainBall;
+            }
         }
 
-        private void tempBallControll()
+        private void moveCharacter()
         {
-            float AxisX = Input.GetAxis("Horizontal");
-            float AxisZ = Input.GetAxis("Vertical");
-            Vector3 direction = new Vector3(AxisX, 0f, AxisZ);
-            _ball.move(direction);
-        }
-
-        private void ballControll()
-        {
-            float AxisX = _joystick.Horizontal;
-            float AxisZ = _joystick.Vertical;
-            Vector3 direction = new Vector3(AxisX, 0f, AxisZ);
-            _ball.move(direction);
+            //float horixontalAxis = _joystick.Horizontal;
+            //float verticalAxis = _joystick.Vertical;
+            float horixontalAxis = Input.GetAxis("Horizontal");
+            float verticalAxis = Input.GetAxis("Vertical");
+            _currentMovable.move(horixontalAxis, verticalAxis);
         }
     }
 }

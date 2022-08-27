@@ -2,22 +2,13 @@ using UnityEngine;
 
 namespace CodeBase
 {
-    public class MazeSegment : MonoBehaviour
+    public class MazeSegment : MonoBehaviour, IMovable
     {
-        private void Update()
-        {
-            float TempAxis = Input.GetAxis("Horizontal");
+        private const float ROTATION_SPEED = 25f;
 
-            if (TempAxis != 0)
-            {
-                rotate(TempAxis);
-            }
-        }
-
-        public void rotate(float angle)
+        public void move(float horizontal, float vertical)
         {
-            float tempSpeed = 25f;
-            Vector3 rotation = angle * tempSpeed * Time.deltaTime * Vector3.up;
+            Vector3 rotation = horizontal * ROTATION_SPEED * Time.deltaTime * Vector3.up;
             transform.Rotate(rotation);
         }
     }

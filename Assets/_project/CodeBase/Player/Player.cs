@@ -1,4 +1,6 @@
+using codeBase.infrastructure;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace codeBase
 {
@@ -7,41 +9,26 @@ namespace codeBase
         [SerializeField] private bool _debugInput;
 
         private IMovable _currentMovable;
-        private Joystick _joystick;
+        private UIInput _input;
         private Ball _mainBall;
 
-        public void init(Joystick joystick, Ball ball)
+        public void init(UIInput input, Ball ball)
         {
-            _joystick = joystick;
+            _input = input;
             _mainBall = ball;
+            _input.onButtonClick += () => setNewMovable(_mainBall);
             setNewMovable(_mainBall);
         }
 
         private void Update()
         {
             moveCharacter();
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                setNewMovable(_mainBall);
-            }
         }
 
         private void moveCharacter()
         {
-            float horixontalAxis;
-            float verticalAxis;
-
-            if (_debugInput)
-            {
-                horixontalAxis = Input.GetAxis("Horizontal");
-                verticalAxis = Input.GetAxis("Vertical");
-            }
-            else
-            {
-                horixontalAxis = _joystick.Horizontal;
-                verticalAxis = _joystick.Vertical;
-            }
+            float horixontalAxis = _input.horizontal;
+            float verticalAxis = _input.vertical;
             _currentMovable.move(horixontalAxis, verticalAxis);
         }
 
@@ -65,9 +52,6 @@ namespace codeBase
                 ball.onBeginInteract += beginInteraction;
             }
         }
-        private void beginInteraction(IInteractable interactable)
-        {
-            interactable.interact(this);
-        }
+        private void beginInteraction(IInteractable interactable) => interactable.interact(this);
     }
 }

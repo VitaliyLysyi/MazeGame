@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace codeBase
 {
-    public class MazeLinkedPlatform : MonoBehaviour, IInteractable
+    public class RingLinkedPlatform : MonoBehaviour, IInteractable
     {
-        [SerializeField] private MazeSegment _linkedMazeSegment;
+        [SerializeField] private MazeRing _linkedMazeSegment;
 
         private void OnDrawGizmos()
         {

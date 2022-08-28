@@ -1,10 +1,10 @@
 using UnityEngine;
 
-namespace CodeBase
+namespace codeBase
 {
     public class MazeRing : MonoBehaviour, IMovable
     {
-        private const float ROTATION_SPEED = 25f;
+        private const float ROTATION_SPEED = 30f;
 
         public void move(float horizontal, float vertical)
         {

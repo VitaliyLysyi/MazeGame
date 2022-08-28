@@ -38,7 +38,7 @@ AudioMixerController:
   - guid: ed3f1a7f1a329d94fad395cf821958bd
     name: MusicVolume
   - guid: 38c8e3b06c2376c4ca93d86e90dc83a9
-    name: SiundVolume
+    name: SoundVolume
   m_AudioMixerGroupViews:
   - guids:
     - d740be8e41b583648a43d32dc1657e67
@@ -92,7 +92,8 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: c2b355818fe1a7e4a9cd5d9b4a04e78b
   m_FloatValues:
-    f6680706e06735546b8e0b7849f60ffb: 0
+    38c8e3b06c2376c4ca93d86e90dc83a9: -11.944499
+    f6680706e06735546b8e0b7849f60ffb: -0.16685188
   m_TransitionOverrides: {}
 --- !u!244 &73660931523302882
 AudioMixerEffectController:

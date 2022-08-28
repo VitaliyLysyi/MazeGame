@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Localization.Components;
 
-namespace CodeBase.Infrastructure
+namespace codeBase.infrastructure
 {
     public class LocalizationText : LocalizeStringEvent
     {

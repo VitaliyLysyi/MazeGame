@@ -1,14 +1,14 @@
 using System.IO;
 using UnityEngine;
 
-namespace CodeBase.Infrastructure.SaveLoadSystem
+namespace codeBase.infrastructure.SaveLoadSystem
 {
-    public static class DataHolder
+    public static class DataHandler
     {
         private const string DATA_FOLDER = "/Data/";
         private const string FILE_FORMAT = ".json";
 
-        public static void Save<T>(T data) where T : class
+        public static void Save<T>(T data) where T : struct
         {
             string directoryPath = Application.dataPath + DATA_FOLDER;
             string fileName = typeof(T).ToString() + FILE_FORMAT;
@@ -19,13 +19,12 @@ namespace CodeBase.Infrastructure.SaveLoadSystem
             File.WriteAllText(directoryPath + fileName, json);
         }
 
-        public static bool Load<T>(out T data) where T : class
+        public static bool Load<T>(ref T data) where T : struct 
         {
             string directoryPath = Application.dataPath + DATA_FOLDER;
             string fileName = typeof(T).ToString() + FILE_FORMAT;
             
             bool hasData = false;
-            data = default;
 
             if (File.Exists(directoryPath + fileName))
             {

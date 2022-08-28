@@ -1,16 +1,16 @@
-using System;
-using CodeBase.Infrastructure;
-using CodeBase.Infrastructure.States;
+using codeBase.infrastructure;
+using codeBase.infrastructure.constants;
+using codeBase.infrastructure.States;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace CodeBase.Menu
+namespace codeBase.Menu
 {
     public class MainMenu : MonoBehaviour
     {
         [SerializeField] private Button _playButton;
-        [SerializeField] private ButtonGroup _buttonSettings;
+        [SerializeField] private WindowGroup _buttonSettings;
 
         private Game _game;
 
@@ -23,12 +23,12 @@ namespace CodeBase.Menu
         private void Start()
         {
             _playButton.onClick.AddListener(enterPlayScene);
-            _buttonSettings.Init();
+            _buttonSettings.init();
         }
 
         private void enterPlayScene()
         {
-            _game.StateMachine.Enter<LoadLevelState, string>(SceneName.GAMEPLAY);
+            _game.stateMachine.Enter<LoadLevelState, string>(Constants.SCENE_GAMEPLAY);
         }
     }
 }

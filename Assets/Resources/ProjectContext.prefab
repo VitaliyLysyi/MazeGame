@@ -76,3 +76,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _loadingCurtain: {fileID: 8713324141352661597, guid: 1b52141ecb5bfa945a08cdbcf6248b24,
     type: 3}
+  _audioMixer: {fileID: 24100000, guid: 75e2f225816e9664797391fba4072043, type: 2}

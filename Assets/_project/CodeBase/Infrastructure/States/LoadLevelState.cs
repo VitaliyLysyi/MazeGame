@@ -1,7 +1,7 @@
-﻿using CodeBase.Logic;
+﻿using codeBase.Logic;
 using UnityEngine;
 
-namespace CodeBase.Infrastructure.States
+namespace codeBase.infrastructure.States
 {
     public class LoadLevelState : IPayloadedState<string>
     {

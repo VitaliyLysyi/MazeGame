@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using CodeBase.Infrastructure;
-using CodeBase.Infrastructure.States;
+using codeBase.infrastructure;
+using codeBase.infrastructure.constants;
+using codeBase.infrastructure.States;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -22,9 +21,9 @@ public class StartFromPreloader : MonoBehaviour
     {
         if (!isStartFromPreloader && !isPreloaderScene())
         {
-            _game.StateMachine.Enter<LoadLevelState, string>(SceneName.PRELOADER);
+            _game.stateMachine.Enter<LoadLevelState, string>(Constants.SCENE_PRELOADER);
         }
     }
 
-    private static bool isPreloaderScene() => SceneManager.GetActiveScene().name == SceneName.PRELOADER;
+    private static bool isPreloaderScene() => SceneManager.GetActiveScene().name == Constants.SCENE_PRELOADER;
 }

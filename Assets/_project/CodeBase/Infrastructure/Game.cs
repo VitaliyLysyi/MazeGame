@@ -1,16 +1,21 @@
-using CodeBase.Infrastructure.Coroutines;
-using CodeBase.Infrastructure.States;
-using CodeBase.Logic;
+using codeBase.infrastructure.Coroutines;
+using codeBase.infrastructure.States;
+using codeBase.Logic;
 
-namespace CodeBase.Infrastructure
+namespace codeBase.infrastructure
 {
     public class Game
     {
-        public GameStateMachine StateMachine;
+        public GameStateMachine stateMachine;
+        public GameSettings settings;
 
-        public Game(ICoroutineRunner coroutineRunner, LoadingCurtain curtain)
+        public static Game instance;
+
+        public Game(ICoroutineRunner coroutineRunner, LoadingCurtain curtain, GameSettings gameSettings)
         {
-            StateMachine = new GameStateMachine(new SceneLoader(coroutineRunner), curtain);
+            instance = this;
+            settings = gameSettings;
+            stateMachine = new GameStateMachine(new SceneLoader(coroutineRunner), curtain);
         }
     }
 }

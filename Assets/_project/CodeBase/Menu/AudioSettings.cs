@@ -1,45 +1,46 @@
 ﻿using System;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
-namespace CodeBase.Menu
+namespace codeBase.Menu
 {
     [Serializable]
-    public class AudioSettings
+    public class AudioButtonsGroup
     {
+        private const float MIN_VOLUME = 0.000001f;
+        private const float MAX_VOLUME = 1f;
+        
         public TextMeshProUGUI volumeValue;
         public Slider slider;
         public Image image;
 
-        private AudioMixer _audioMixer;
         private string _mixerName;
 
-        public const float minVolume = 0.000001f;
-        public const float maxVolume = 1f;
-
-        public event Action<float> changeValue;
-
-        public void Init(AudioMixer audioMixer, string mixerName)
+        public event Action<string, float> changeValue;
+        
+        public void init(string mixerName, float currentSliderValue)
         {
-            _audioMixer = audioMixer;
             _mixerName = mixerName;
+            initSlider(currentSliderValue);
+        }
 
-            slider.maxValue = maxVolume;
-            slider.minValue = minVolume;
-            slider.normalizedValue = 1f;
+        private void initSlider(float currentSliderValue)
+        {
+            slider.maxValue = MAX_VOLUME;
+            slider.minValue = MIN_VOLUME;
+            slider.normalizedValue = currentSliderValue;
             slider.onValueChanged.AddListener(updateValue);
         }
 
-        public void SetVolume(float value) => slider.value = value;
-
         private void updateValue(float value)
         {
-            _audioMixer.SetFloat(_mixerName, Mathf.Log10(value) * 20);
             volumeValue.text = Mathf.Round((value / slider.maxValue) * 100).ToString();
             
-            changeValue?.Invoke((float)Math.Round(value, 2));
+            changeValue?.Invoke(_mixerName ,value);
         }
     }
 }

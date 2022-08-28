@@ -3,14 +3,14 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace CodeBase.Menu
+namespace codeBase.Menu
 {
     public class Window : MonoBehaviour
     {
         [SerializeField] private bool _hasParentWindow;
         [SerializeField, ShowIf("_hasParentWindow")] private Button _returnButton;
 
-        private Window _previoueWindow;
+        private Window _previoueWindow = null;
 
         private void Start()
         {
@@ -22,40 +22,38 @@ namespace CodeBase.Menu
 
         private void EnterPreviousWindow()
         {
-            _previoueWindow.Enter(this);
+            _previoueWindow.gameObject.SetActive(true);
+            Destroy(gameObject);
         }
 
-        public void Enter(Window previoueWindow)
+        public void enterNew(Window previoueWindow)
         {
-            previoueWindow.Close();
             if(_previoueWindow == null)
                 _previoueWindow = previoueWindow;
-            
-            gameObject.SetActive(true);
+
+            previoueWindow.close();
         }
 
-        public void Close()
-        {
-            gameObject.SetActive(false);
-        }
-
+        public void close() => gameObject.SetActive(false);
     }
 
     [Serializable]
-    public class ButtonGroup
+    public class WindowGroup
     {
-        public Button button;
-        public Window openWindow;
+        public Button buttonForOpenWindow;
+        public Window openWindowPrefab;
         public Window currentWindow;
 
-        public void Init()
+        public void init()
         {
-            button.onClick.AddListener(EnterWindow);
+            buttonForOpenWindow.onClick.AddListener(enterWindow);
         }
 
-        private void EnterWindow()
+        private void enterWindow()
         {
-            openWindow.Enter(currentWindow);
+            Window window = UnityEngine.Object.Instantiate(openWindowPrefab, currentWindow.transform.parent);
+
+            window.enterNew(currentWindow);
         }
     }
 

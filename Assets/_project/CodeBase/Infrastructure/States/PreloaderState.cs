@@ -1,4 +1,4 @@
-﻿namespace CodeBase.Infrastructure.States
+﻿namespace codeBase.infrastructure.States
 {
     public class PreloaderState : IState
     {

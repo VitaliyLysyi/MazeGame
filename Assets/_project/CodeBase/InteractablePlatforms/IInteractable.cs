@@ -1,4 +1,4 @@
-namespace CodeBase
+namespace codeBase
 {
     public interface IInteractable
     {

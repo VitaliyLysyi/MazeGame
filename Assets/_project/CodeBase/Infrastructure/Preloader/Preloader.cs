@@ -1,10 +1,10 @@
-﻿using CodeBase.Infrastructure.Coroutines;
-using CodeBase.Infrastructure.States;
-using CodeBase.Logic;
+﻿using codeBase.infrastructure.Coroutines;
+using codeBase.infrastructure.States;
+using codeBase.Logic;
 using UnityEngine;
 using Zenject;
 
-namespace CodeBase.Infrastructure.Preloader
+namespace codeBase.infrastructure.Preloader
 {
     public class Preloader : MonoBehaviour, ICoroutineRunner
     {
@@ -18,7 +18,8 @@ namespace CodeBase.Infrastructure.Preloader
 
         private void Start()
         {
-            _game.StateMachine.Enter<PreloaderState>();
+            _game.settings.enableSettings();
+            _game.stateMachine.Enter<PreloaderState>();
             StartFromPreloader.isStartFromPreloader = true;
         }
     }

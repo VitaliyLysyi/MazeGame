@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CodeBase
+namespace codeBase
 {
     public class StartPoint : MonoBehaviour
     {

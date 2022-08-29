@@ -1,3 +1,4 @@
+using System;
 using codeBase.infrastructure;
 using codeBase.infrastructure.constants;
 using codeBase.infrastructure.States;
@@ -11,6 +12,7 @@ namespace codeBase.Menu
     {
         [SerializeField] private Button _playButton;
         [SerializeField] private WindowGroup _buttonSettings;
+        [SerializeField] private AudioButton _audioButton;
 
         private Game _game;
 
@@ -24,6 +26,18 @@ namespace codeBase.Menu
         {
             _playButton.onClick.AddListener(enterPlayScene);
             _buttonSettings.init();
+            _audioButton.init(_game.settings.getMixerVolume(Constants.AUDIO_MAIN));
+        }
+
+        private void OnEnable() => _audioButton.audioOn += audioOn;
+
+        private void OnDisable() => _audioButton.audioOn -= audioOn;
+        
+        private void audioOn(bool audioOn)
+        {
+            float value = audioOn ? 1f : 0.000001f;
+            _game.settings.setMixerVolume(Constants.AUDIO_MAIN, value);
+            _game.settings.saveData();
         }
 
         private void enterPlayScene()

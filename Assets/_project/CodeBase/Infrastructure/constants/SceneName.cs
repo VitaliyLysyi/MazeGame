@@ -8,5 +8,6 @@ namespace codeBase.infrastructure.constants
 
         public const string AUDIO_MUSIC = "MusicVolume";
         public const string AUDIO_SOUND = "SoundVolume";
+        public const string AUDIO_MAIN = "AudioVolume";
     }
 }

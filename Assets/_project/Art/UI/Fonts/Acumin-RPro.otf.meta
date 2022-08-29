@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2a8c874ba2bd4d74ab8314ece2778e25
+guid: cd0af4c52f2ab07498f557219f9c9f9b
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Acumin Variable Concept
+  - Acumin Pro
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

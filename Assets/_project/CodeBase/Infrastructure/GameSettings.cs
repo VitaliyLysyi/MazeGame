@@ -30,6 +30,7 @@ namespace codeBase.infrastructure
             {
                 settings.soundVolume = 1f;
                 settings.musicVolume = 1f;
+                settings.audioVolume = 1f;
                 settings.vibrationOn = true;
                 settings.language = LanguageType.ENGLISH;
             }
@@ -43,6 +44,7 @@ namespace codeBase.infrastructure
             setLanguage(_settings.language);
             setMixerVolume(Constants.AUDIO_SOUND, _settings.soundVolume);
             setMixerVolume(Constants.AUDIO_MUSIC, _settings.musicVolume);
+            setMixerVolume(Constants.AUDIO_MAIN, _settings.audioVolume);
         }
 
         public float getMixerVolume(string mixerName) => _settings.getAudioMixerVolume(mixerName);

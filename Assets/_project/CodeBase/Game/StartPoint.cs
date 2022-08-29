@@ -5,14 +5,16 @@ namespace codeBase
     public class StartPoint : MonoBehaviour
     {
         [SerializeField] private DebugWindow _debugWindow;
+        [SerializeField] private GameUI _gameUI;
+        [SerializeField] private GameInput _gameInput;
         [SerializeField] private Player _player;
         [SerializeField] private Ball _mainBall;
-        [SerializeField] private UIInput _input;
 
         private void Start()
         {
-            _debugWindow.init(_input);
-            _player.init(_input, _mainBall);
+            _gameInput.init(_gameUI);
+            _debugWindow.init(_gameInput);
+            _player.init(_gameInput, _mainBall);
         }
     }
 }

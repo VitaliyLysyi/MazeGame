@@ -275,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4664095251948391718}
   - component: {fileID: 4664095251948391719}
-  - component: {fileID: 8980710717764219013}
+  - component: {fileID: 2827029455392171287}
   m_Layer: 0
   m_Name: MazeLinkedPlatform
   m_TagString: Untagged
@@ -313,7 +313,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8980710717764219013
+--- !u!114 &2827029455392171287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -322,10 +322,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4664095251948391716}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8206d3b276b4903468fba56855463396, type: 3}
+  m_Script: {fileID: 11500000, guid: 951a526a3eb6d8a48a21a203305996b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _linkedMazeSegment: {fileID: 0}
+  _linkedObject: {fileID: 0}
 --- !u!1 &4664095253206222622
 GameObject:
   m_ObjectHideFlags: 0

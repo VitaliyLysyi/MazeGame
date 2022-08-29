@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7727577854233545875}
   - component: {fileID: 7727577854233545874}
-  - component: {fileID: 5652302457213144249}
+  - component: {fileID: 7308689020462266942}
   m_Layer: 0
   m_Name: BallLinkedPlatform
   m_TagString: Untagged
@@ -132,7 +132,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5652302457213144249
+--- !u!114 &7308689020462266942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,10 +141,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7727577854233545873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37273288f80f7d2498a6c4ec051bd951, type: 3}
+  m_Script: {fileID: 11500000, guid: 951a526a3eb6d8a48a21a203305996b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _linkedBall: {fileID: 57719742383789306}
+  _linkedObject: {fileID: 57719742383789305}
 --- !u!1 &7727577855056217771
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,18 +297,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 693698678b939f84e9e77e99fc130154, type: 3}
---- !u!114 &57719742383789306 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3318123426636168438, guid: 693698678b939f84e9e77e99fc130154,
+--- !u!1 &57719742383789305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3318123426636168437, guid: 693698678b939f84e9e77e99fc130154,
     type: 3}
   m_PrefabInstance: {fileID: 3369071173657487372}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72f0638e056d4e848a08927abbc98711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &57719742383789309 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3318123426636168433, guid: 693698678b939f84e9e77e99fc130154,

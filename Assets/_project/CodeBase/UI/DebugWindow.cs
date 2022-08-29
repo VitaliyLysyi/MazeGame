@@ -9,9 +9,9 @@ namespace codeBase
         [SerializeField] private Button _closeButton;
         [SerializeField] private Toggle _debugInputToggle;
 
-        private UIInput _input;
+        private GameInput _input;
 
-        public void init(UIInput input)
+        public void init(GameInput input)
         {
             gameObject.SetActive(false);
             _openButton.onClick.AddListener(() => gameObject.SetActive(true));

@@ -4,18 +4,20 @@ using UnityEngine.UI;
 
 namespace codeBase
 {
-    public class UIInput : MonoBehaviour
+    public class GameInput : MonoBehaviour
     {
-        [SerializeField] private Joystick _joystick;
-        [SerializeField] private Button _button;
-
+        private GameUI _gameUI;
+        private Joystick _joystick;
         private bool _debugMode = false;
 
         public event Action onButtonClick;
 
-        private void Start()
+        public void init(GameUI gameUI)
         {
-            _button.onClick.AddListener(onClickInvoke);
+            _gameUI = gameUI;
+            _joystick = _gameUI.getJoystick;
+            Button mainButton = _gameUI.getMainButton;
+            mainButton.onClick.AddListener(onClickInvoke);
         }
 
         private void Update()

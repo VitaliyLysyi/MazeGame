@@ -1,57 +1,48 @@
-using codeBase.infrastructure;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace codeBase
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField] private bool _debugInput;
-
-        private IMovable _currentMovable;
-        private UIInput _input;
+        private IControlable _currentControlable;
+        private GameInput _input;
         private Ball _mainBall;
 
-        public void init(UIInput input, Ball ball)
+        public void init(GameInput input, Ball ball)
         {
             _input = input;
             _mainBall = ball;
-            _input.onButtonClick += () => setNewMovable(_mainBall);
-            setNewMovable(_mainBall);
+            setNewControlable(_mainBall);
+            _input.onButtonClick += () => setNewControlable(_mainBall);
         }
 
         private void Update()
         {
-            moveCharacter();
+            if (_currentControlable != null)
+            {
+                controllCharacter();
+            }
         }
 
-        private void moveCharacter()
+        private void controllCharacter()
         {
             float horixontalAxis = _input.horizontal;
             float verticalAxis = _input.vertical;
-            _currentMovable.move(horixontalAxis, verticalAxis);
+            _currentControlable.control(horixontalAxis, verticalAxis);
         }
 
-        public void setNewMovable(IMovable movable)
+        public void setNewControlable(IControlable controlable)
         {
-            if (movable == _currentMovable)
+            if (controlable == _currentControlable)
             {
                 return;
             }
 
-            if (_currentMovable is Ball)
-            {
-                Ball ball = _currentMovable as Ball;
-                ball.onBeginInteract -= beginInteraction;
-            }
-
-            _currentMovable = movable;
-            if (_currentMovable is Ball)
-            {
-                Ball ball = _currentMovable as Ball;
-                ball.onBeginInteract += beginInteraction;
-            }
+            _currentControlable?.endControl(this);
+            _currentControlable = controlable;
+            _currentControlable.beginControl(this);
         }
-        private void beginInteraction(IInteractable interactable) => interactable.interact(this);
+
+        public void beginInteraction(IInteractable interactable) => interactable.interact(this);
     }
 }

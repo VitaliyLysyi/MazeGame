@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace codeBase
@@ -5,9 +6,9 @@ namespace codeBase
     public class Ball : MonoBehaviour, IControlable
     {
         [SerializeField] private Rigidbody _rigidbody;
+        [SerializeField] private BallSettings _ballSettings;
 
-        public delegate void BallAction(IInteractable interactable);
-        public event BallAction onBeginInteract;
+        public event Action<IInteractable> onBeginInteract;
 
         public void beginControl(Player player)
         {
@@ -16,7 +17,8 @@ namespace codeBase
 
         public void control(float horizontalAxis, float verticalAxis)
         {
-            Vector3 direction = new Vector3(horizontalAxis, 0f, verticalAxis);
+            float sensitivity = _ballSettings.controlSensitivity;
+            Vector3 direction = new Vector3(horizontalAxis, 0f, verticalAxis) * sensitivity;
             move(direction);
         }
 

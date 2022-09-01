@@ -5,15 +5,15 @@ namespace codeBase
     public class Player : MonoBehaviour
     {
         private IControlable _currentControlable;
-        private GameInput _input;
+        private IGameInput _gameInput;
         private Ball _mainBall;
 
-        public void init(GameInput input, Ball ball)
+        public void init(IGameInput gameInput, Ball ball)
         {
-            _input = input;
             _mainBall = ball;
             setNewControlable(_mainBall);
-            _input.onButtonClick += () => setNewControlable(_mainBall);
+            _gameInput = gameInput;
+            _gameInput.onMainButtonClick += () => setNewControlable(_mainBall);
         }
 
         private void Update()
@@ -26,8 +26,8 @@ namespace codeBase
 
         private void controllCharacter()
         {
-            float horixontalAxis = _input.horizontal;
-            float verticalAxis = _input.vertical;
+            float horixontalAxis = _gameInput.horizontalAxis();
+            float verticalAxis = _gameInput.verticalAxis();
             _currentControlable.control(horixontalAxis, verticalAxis);
         }
 

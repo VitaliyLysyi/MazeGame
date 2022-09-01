@@ -160,3 +160,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c996300210015243aeb91d41ff776b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mazeRingSettings: {fileID: 11400000, guid: 5358300d944299c409df4bb797dc20ff, type: 2}

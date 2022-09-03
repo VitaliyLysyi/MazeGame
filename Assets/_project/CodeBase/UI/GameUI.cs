@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace codeBase
+namespace codeBase.UI
 {
     public class GameUI : MonoBehaviour
     {

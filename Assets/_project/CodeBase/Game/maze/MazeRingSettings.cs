@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace codeBase
+namespace codeBase.game.maze
 {
     [CreateAssetMenu(fileName = "MazeRingSettings", menuName = "Game Data/MazeRingSettings")]
     public class MazeRingSettings : ScriptableObject

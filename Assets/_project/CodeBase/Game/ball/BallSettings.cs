@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace codeBase
+namespace codeBase.game.ball
 {
     [CreateAssetMenu(fileName = "BallSettings", menuName = "Game Data/BallSettings")]
     public class BallSettings : ScriptableObject

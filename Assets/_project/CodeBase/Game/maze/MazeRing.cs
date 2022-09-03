@@ -1,6 +1,8 @@
+using codeBase.game.ball;
+using codeBase.game.player;
 using UnityEngine;
 
-namespace codeBase
+namespace codeBase.game.maze
 {
     public class MazeRing : MonoBehaviour, IControlable
     {
@@ -8,7 +10,7 @@ namespace codeBase
 
         public void beginControl(Player player)
         {
-            
+
         }
 
         public void control(float horizontalAxis, float verticalAxis)
@@ -25,7 +27,7 @@ namespace codeBase
 
         public void endControl(Player player)
         {
-            
+
         }
     }
 }

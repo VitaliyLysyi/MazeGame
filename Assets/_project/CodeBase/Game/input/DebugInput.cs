@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace codeBase
+namespace codeBase.game.input
 {
     public class DebugInput : MonoBehaviour, IGameInput
     {

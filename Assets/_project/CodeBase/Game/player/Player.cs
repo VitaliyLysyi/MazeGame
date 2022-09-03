@@ -1,6 +1,10 @@
+using codeBase.game.ball;
+using codeBase.game.input;
+using codeBase.game.linkedPlatform;
 using UnityEngine;
+using Zenject;
 
-namespace codeBase
+namespace codeBase.game.player
 {
     public class Player : MonoBehaviour
     {
@@ -8,12 +12,26 @@ namespace codeBase
         private IGameInput _gameInput;
         private Ball _mainBall;
 
-        public void init(IGameInput gameInput, Ball ball)
+        //public void init(IGameInput gameInput, Ball ball)
+        //{
+        //    _mainBall = ball;
+        //    setNewControlable(_mainBall);
+        //    _gameInput = gameInput;
+        //    _gameInput.onMainButtonClick += () => setNewControlable(_mainBall);
+        //}
+
+        [Inject]
+        private void constructor(IGameInput gameInput)
         {
-            _mainBall = ball;
-            setNewControlable(_mainBall);
             _gameInput = gameInput;
-            _gameInput.onMainButtonClick += () => setNewControlable(_mainBall);
+        }
+
+        private void Start()
+        {
+            Debug.Log("Injection complete! Current input: " + _gameInput);
+
+            setNewControlable(_mainBall);
+            //_gameInput.onMainButtonClick += () => setNewControlable(_mainBall);
         }
 
         private void Update()

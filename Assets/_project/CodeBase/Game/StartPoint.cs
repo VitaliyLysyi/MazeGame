@@ -1,6 +1,11 @@
+using codeBase.game.ball;
+using codeBase.game.input;
+using codeBase.game.player;
+using codeBase.UI;
 using UnityEngine;
+using AndroidInput = codeBase.game.input.AndroidInput;
 
-namespace codeBase
+namespace codeBase.game
 {
     public class StartPoint : MonoBehaviour
     {
@@ -12,8 +17,8 @@ namespace codeBase
 
         private void Start()
         {
-            IGameInput gameInput = _debugInputMode ? _debugInput : new AndroidInput(_gameUI);
-            _player.init(gameInput, _mainBall);
+            //IGameInput gameInput = _debugInputMode ? _debugInput : new AndroidInput(_gameUI);
+            //_player.init(gameInput, _mainBall);
         }
     }
 }

@@ -1,4 +1,6 @@
-namespace codeBase
+using codeBase.game.player;
+
+namespace codeBase.game.ball
 {
     public interface IControlable
     {

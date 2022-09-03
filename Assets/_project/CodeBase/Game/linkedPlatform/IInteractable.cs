@@ -1,4 +1,6 @@
-namespace codeBase
+using codeBase.game.player;
+
+namespace codeBase.game.linkedPlatform
 {
     public interface IInteractable
     {

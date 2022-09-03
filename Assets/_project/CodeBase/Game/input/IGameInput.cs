@@ -1,6 +1,6 @@
 using System;
 
-namespace codeBase
+namespace codeBase.game.input
 {
     public interface IGameInput
     {

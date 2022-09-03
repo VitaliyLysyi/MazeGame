@@ -1,7 +1,9 @@
 using System;
+using codeBase.game.linkedPlatform;
+using codeBase.game.player;
 using UnityEngine;
 
-namespace codeBase
+namespace codeBase.game.ball
 {
     public class Ball : MonoBehaviour, IControlable
     {

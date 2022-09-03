@@ -1,6 +1,8 @@
+using codeBase.game.ball;
+using codeBase.game.player;
 using UnityEngine;
 
-namespace codeBase
+namespace codeBase.game.linkedPlatform
 {
     public class LinkedPlatform : MonoBehaviour, IInteractable
     {

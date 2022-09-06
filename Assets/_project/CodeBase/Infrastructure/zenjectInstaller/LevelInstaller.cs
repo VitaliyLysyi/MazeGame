@@ -1,72 +1,30 @@
-using codeBase.game.ball;
 using codeBase.game.input;
 using codeBase.game.level;
 using codeBase.game.player;
 using codeBase.UI;
 using UnityEngine;
 using Zenject;
-using AndroidInput = codeBase.game.input.AndroidInput;
 
 namespace codeBase.infrastructure.zenjectInstaller
 {
     public class LevelInstaller : MonoInstaller
     {
 #if UNITY_EDITOR
+        [Header("---------------------------------------------")]
         [SerializeField] private bool _debugInputMode;
         [SerializeField] private DebugInput _debugInputPrefab;
+        [Header("---------------------------------------------")]
 #endif
         [SerializeField] private LevelRegister _levelRegister;
         [SerializeField] private GameUI _gameUI;
         [SerializeField] private Player _playerPrefab;
 
-        [SerializeField] private Ball _mainBall;
-
-        private IGameInput _gameInput;
-        private Player _player;
-
         public override void InstallBindings()
         {
-            initGameInput();
-            initPlayer();
-
-            gameUI();
             levelRegister();
+            levelLoader();
             gameInput();
             player();
-
-            Debug.Log("LevelInstaller: input - " + _gameInput);
-        }
-
-        private void initPlayer()
-        {
-            //GameObject player = Instantiate(new GameObject());
-            //player.name = "Player";
-            //_player = player.AddComponent<Player>();
-
-            _player = Instantiate(_playerPrefab);
-
-            //_player.init(_gameInput, _mainBall);
-        }
-
-        private void initGameInput()
-        {
-#if UNITY_EDITOR
-            if (_debugInputMode)
-            {
-                DebugInput debugInput = Instantiate(_debugInputPrefab);
-                _gameInput = debugInput;
-                return;
-            }
-#endif
-            _gameInput = new AndroidInput();
-        }
-
-        private void gameUI()
-        {
-            Container
-                .Bind<GameUI>()
-                .FromInstance(_gameUI)
-                .AsSingle();
         }
 
         private void levelRegister()
@@ -74,23 +32,49 @@ namespace codeBase.infrastructure.zenjectInstaller
             Container
                 .Bind<LevelRegister>()
                 .FromInstance(_levelRegister)
-                .AsSingle();
+                .AsSingle()
+                .NonLazy();
+        }
+
+        private void levelLoader()
+        {
+            Container
+                .Bind<LevelLoader>()
+                .AsSingle()
+                .NonLazy();
         }
 
         private void gameInput()
         {
+            IGameInput input;
+#if UNITY_EDITOR
+            if (_debugInputMode)
+            {
+                input = Container.InstantiatePrefabForComponent<IGameInput>(_debugInputPrefab);
+            }
+            else
+            {
+                input = new AndroidInputService(_gameUI);
+            }
+#else
+            input = new AndroidInputService(_gameUI);
+#endif
             Container
                 .Bind<IGameInput>()
-                .FromInstance(_gameInput)
-                .AsSingle();
+                .FromInstance(input)
+                .AsSingle()
+                .NonLazy();
         }
 
         private void player()
         {
+            Player player = Container.InstantiatePrefabForComponent<Player>(_playerPrefab);
+
             Container
                 .Bind<Player>()
-                .FromInstance(_player)
-                .AsSingle();
+                .FromInstance(player)
+                .AsSingle()
+                .NonLazy();
         }
     }
 }

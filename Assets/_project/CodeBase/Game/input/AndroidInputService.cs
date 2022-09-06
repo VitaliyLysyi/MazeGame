@@ -5,20 +5,12 @@ using Zenject;
 
 namespace codeBase.game.input
 {
-    public class AndroidInput : IGameInput
+    public class AndroidInputService : IGameInput
     {
         private Joystick _joystick;
         public event Action onMainButtonClick;
 
-        //public AndroidInput(GameUI gameUI)
-        //{
-        //    _joystick = gameUI.getJoystick;
-        //    Button mainButton = gameUI.getMainButton;
-        //    mainButton.onClick.AddListener(onClickInvoke);
-        //}
-
-        [Inject]
-        private void constructor(GameUI gameUI)
+        public AndroidInputService(GameUI gameUI)
         {
             _joystick = gameUI.getJoystick;
             Button mainButton = gameUI.getMainButton;

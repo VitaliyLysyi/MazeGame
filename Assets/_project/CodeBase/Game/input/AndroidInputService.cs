@@ -10,7 +10,7 @@ namespace codeBase.game.input
         private Joystick _joystick;
         public event Action onMainButtonClick;
 
-        public AndroidInputService(GameUI gameUI)
+        public AndroidInputService(InGameUI gameUI)
         {
             _joystick = gameUI.getJoystick;
             Button mainButton = gameUI.getMainButton;

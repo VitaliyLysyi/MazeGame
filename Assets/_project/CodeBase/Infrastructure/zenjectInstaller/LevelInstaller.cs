@@ -16,13 +16,14 @@ namespace codeBase.infrastructure.zenjectInstaller
         [Header("---------------------------------------------")]
 #endif
         [SerializeField] private LevelRegister _levelRegister;
-        [SerializeField] private GameUI _gameUI;
+        [SerializeField] private InGameUI _inGameUI;
         [SerializeField] private Player _playerPrefab;
 
         public override void InstallBindings()
         {
             levelRegister();
             levelLoader();
+            inGameUI();
             gameInput();
             player();
         }
@@ -44,6 +45,15 @@ namespace codeBase.infrastructure.zenjectInstaller
                 .NonLazy();
         }
 
+        private void inGameUI()
+        {
+            Container
+                .Bind<InGameUI>()
+                .FromInstance(_inGameUI)
+                .AsSingle()
+                .NonLazy();
+        }
+
         private void gameInput()
         {
             IGameInput input;
@@ -54,10 +64,10 @@ namespace codeBase.infrastructure.zenjectInstaller
             }
             else
             {
-                input = new AndroidInputService(_gameUI);
+                input = new AndroidInputService(_inGameUI);
             }
 #else
-            input = new AndroidInputService(_gameUI);
+            input = new AndroidInputService(_inGameUI);
 #endif
             Container
                 .Bind<IGameInput>()

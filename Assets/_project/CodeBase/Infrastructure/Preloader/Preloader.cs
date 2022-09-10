@@ -6,7 +6,7 @@ using Zenject;
 
 namespace codeBase.infrastructure.Preloader
 {
-    public class Preloader : MonoBehaviour, ICoroutineRunner
+    public class Preloader : MonoBehaviour
     {
         private Game _game;
 

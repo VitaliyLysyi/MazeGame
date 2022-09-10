@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 8252780727838269102}
   - component: {fileID: 8252780727838269096}
   - component: {fileID: 8252780727838269103}
+  - component: {fileID: 4010568659735031761}
   m_Layer: 5
   m_Name: TheDie_1
   m_TagString: Untagged
@@ -290,3 +291,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4010568659735031761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8252780727838269101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84dbf5408c86304298521a178736548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 8252780727838269102}
+  _startPosition: {x: -608, y: 514.00006, z: 0}
+  _endPosition: {x: -608, y: -385, z: 0}

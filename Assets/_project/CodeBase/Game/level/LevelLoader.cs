@@ -44,6 +44,8 @@ namespace codeBase.game.level
             loadLevel(_currentLevelIndex);
         }
 
+        public void reload() => loadLevel(_currentLevelIndex);
+
         public Level currentLevelLoaded => _currentLevelLoaded;
     }
 }

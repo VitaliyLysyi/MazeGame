@@ -1,4 +1,5 @@
 using codeBase.game.input;
+using codeBase.Menu;
 using UnityEngine;
 using Zenject;
 
@@ -13,9 +14,10 @@ namespace codeBase.infrastructure.zenjectInstaller
         [Header("---------------------------------------------")]
 #endif
         [SerializeField] private Canvas _canvas;
-        [SerializeField] private AndroidInputService _androidInputPrefab;
         [SerializeField] private Timer _timerPrefab;
+        [SerializeField] private SummaryWindow _summaryWindow;
         [SerializeField] private ScoreCounter _scoreCounterPrefab;
+        [SerializeField] private AndroidInputService _androidInputPrefab;
 
         public override void InstallBindings()
         {
@@ -27,6 +29,7 @@ namespace codeBase.infrastructure.zenjectInstaller
 
             timer();
             scoreCounter();
+            summaryWindow();
         }
 
 #if UNITY_EDITOR
@@ -79,6 +82,17 @@ namespace codeBase.infrastructure.zenjectInstaller
             Container
                 .Bind<ScoreCounter>()
                 .FromInstance(timer)
+                .AsSingle()
+                .NonLazy();
+        }
+
+        private void summaryWindow()
+        {
+            SummaryWindow summary = Container.InstantiatePrefabForComponent<SummaryWindow>(_summaryWindow, _canvas.transform);
+
+            Container
+                .Bind<SummaryWindow>()
+                .FromInstance(summary)
                 .AsSingle()
                 .NonLazy();
         }

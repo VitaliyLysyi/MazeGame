@@ -1,5 +1,6 @@
 using codeBase.game.level;
 using codeBase.game.player;
+using codeBase.Menu;
 using UnityEngine;
 using Zenject;
 
@@ -14,20 +15,31 @@ namespace codeBase.infrastructure
         private Player _player;
         private Timer _timer;
         private ScoreCounter _scoreCounter;
+        private SummaryWindow _summaryWindow;
 
         [Inject]
-        private void construct(LevelLoader levelLoader, Player player, Timer timer, ScoreCounter scoreCounter)
+        private void construct(
+            LevelLoader levelLoader, 
+            Player player, 
+            Timer timer, 
+            ScoreCounter scoreCounter, 
+            SummaryWindow summary)
         {
             _levelLoader = levelLoader;
             _player = player;
             _timer = timer;
             _scoreCounter = scoreCounter;
+            _summaryWindow = summary;
         }
 
         private void Start()
         {
             _levelLoader.onLevelLoaded += reset;
             _timer.onTimeIsUp += onLevelFailed;
+
+            _summaryWindow.onNextLevelClick += nextLevel;
+            _summaryWindow.onRestartClick += restartLevel;
+            _summaryWindow.onToMenuClick += toMenu;
 
             startAtLevel(_startLevel);
         }
@@ -54,14 +66,14 @@ namespace codeBase.infrastructure
             _currentLevelLoaded.onLevelCommplete += onLevelComplete;
         }
 
-        private void onLevelComplete()
-        {
-            _levelLoader.nextLevel();
-        }
+        private void onLevelComplete() => _summaryWindow.show(true);
 
-        private void onLevelFailed()
-        {
-            Debug.Log("Level Failed");
-        }
+        private void onLevelFailed() => _summaryWindow.show(false);
+
+        private void restartLevel() => _levelLoader.reload();
+
+        private void nextLevel() => _levelLoader.nextLevel();
+
+        private void toMenu() => Debug.Log("Return to Menu need realization!");
     }
 }

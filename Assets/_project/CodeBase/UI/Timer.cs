@@ -25,9 +25,9 @@ namespace codeBase
         {
             while (_secondsLeft > 0)
             {
+                yield return new WaitForSeconds(UPDATE_TIME);
                 _secondsLeft -= UPDATE_TIME;
                 updateTimerText();
-                yield return new WaitForSeconds(UPDATE_TIME);
             }
             onTimeIsUp?.Invoke();
         }
@@ -40,6 +40,7 @@ namespace codeBase
         {
             StopCoroutine(_timerRunCoroutine);
             _secondsLeft = seconds;
+            updateTimerText();
         }
     }
 }

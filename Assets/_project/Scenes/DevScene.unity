@@ -635,11 +635,13 @@ MonoBehaviour:
   _debugInputPrefab: {fileID: 1685607804341373187, guid: 12b3faf2bc7de4b489f28484ec797b09,
     type: 3}
   _canvas: {fileID: 1016687975}
-  _androidInputPrefab: {fileID: 637817357586707240, guid: 3047480c60e8d1f438fb2479d5458297,
-    type: 3}
   _timerPrefab: {fileID: 8057213982891777979, guid: af42a7b77001fd646b4e5c8ffcdd53b3,
     type: 3}
+  _summaryWindow: {fileID: 8660273914185232325, guid: 4895b234df708e6498abdcd9f5a21bf8,
+    type: 3}
   _scoreCounterPrefab: {fileID: 9097061610340845570, guid: 3989fbbc5fec44a4ea485c1061c747c3,
+    type: 3}
+  _androidInputPrefab: {fileID: 637817357586707240, guid: 3047480c60e8d1f438fb2479d5458297,
     type: 3}
 --- !u!1001 &2079888234598336733
 PrefabInstance:

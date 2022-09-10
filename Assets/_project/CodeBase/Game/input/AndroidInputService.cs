@@ -1,20 +1,19 @@
 using System;
-using codeBase.UI;
+using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace codeBase.game.input
 {
-    public class AndroidInputService : IGameInput
+    public class AndroidInputService : MonoBehaviour, IGameInput
     {
-        private Joystick _joystick;
+        [SerializeField] private Joystick _joystick;
+        [SerializeField] private Button _mainButton;
+
         public event Action onMainButtonClick;
 
-        public AndroidInputService(GameUI gameUI)
+        private void Start()
         {
-            _joystick = gameUI.getJoystick;
-            Button mainButton = gameUI.getMainButton;
-            mainButton.onClick.AddListener(onClickInvoke);
+            _mainButton.onClick.AddListener(onClickInvoke);
         }
 
         private void onClickInvoke() => onMainButtonClick?.Invoke();

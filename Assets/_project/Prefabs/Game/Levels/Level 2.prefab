@@ -65,6 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainBall: {fileID: 8334817715436643323}
+  _secondsForComplete: 60
 --- !u!1 &7805165178027030577
 GameObject:
   m_ObjectHideFlags: 0

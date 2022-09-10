@@ -9,48 +9,41 @@ namespace codeBase.game.level
         private Level _currentLevelLoaded;
         private int _currentLevelIndex;
 
-        public event Action<Level> onLevelLoad;
+        public event Action<Level> onLevelLoaded;
 
         public LevelLoader(LevelRegister levelRegister)
         {
             _levelRegister = levelRegister;
         }
 
-        public void tempStart(int index)
-        {
-            bool levelIndexInRange = index >= 0 && index < _levelRegister.count;
-            _currentLevelIndex = levelIndexInRange ? index : 0;
-            loadLevel(_currentLevelIndex);
-        }
-
-        private void loadLevel(int index)
+        public void loadLevel(int index)
         {
             Level level = _levelRegister.getLevel(index);
-
             if (level != null)
             {
+                destroyCurrentLevel();
                 _currentLevelLoaded = GameObject.Instantiate(level);
-
-                _currentLevelLoaded.onLevelCommplete += tempGoToNextLevel;
-
-                onLevelLoad?.Invoke(_currentLevelLoaded);
+                onLevelLoaded?.Invoke(_currentLevelLoaded);
             }
         }
 
-        private void tempGoToNextLevel()
+        private void destroyCurrentLevel()
         {
-            destroyCurrentLevel();
+            if (_currentLevelLoaded == null)
+            {
+                return;
+            }
 
+            GameObject.Destroy(_currentLevelLoaded.gameObject);
+        }
+
+        public void nextLevel()
+        {
             _currentLevelIndex++;
             _currentLevelIndex = _currentLevelIndex < _levelRegister.count ? _currentLevelIndex : 0;
             loadLevel(_currentLevelIndex);
         }
 
-        private void destroyCurrentLevel()
-        {
-            _currentLevelLoaded.onLevelCommplete -= tempGoToNextLevel;
-
-            GameObject.Destroy(_currentLevelLoaded.gameObject);
-        }
+        public Level currentLevelLoaded => _currentLevelLoaded;
     }
 }

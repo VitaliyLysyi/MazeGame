@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using codeBase.UI;
 using TMPro;
 using UnityEngine;
 
@@ -8,23 +7,17 @@ namespace codeBase
 {
     public class Timer : MonoBehaviour
     {
+        [SerializeField] private TextMeshProUGUI _timerText;
+
         private const float UPDATE_TIME = 1f;
 
         private IEnumerator _timerRunCoroutine;
-        private TextMeshProUGUI _timerText;
-        private InGameUI _inGameUI;
         private float _secondsLeft;
 
-        public event Action onTimeHasPassed;
-
-        private void construct(InGameUI inGameUI)
-        {
-            _inGameUI = inGameUI;
-        }
+        public event Action onTimeIsUp;
 
         private void Start()
         {
-            _timerText = _inGameUI.getTimerText;
             _timerRunCoroutine = timerRunCoroutine();
         }
 
@@ -32,11 +25,11 @@ namespace codeBase
         {
             while (_secondsLeft > 0)
             {
-                yield return new WaitForSeconds(UPDATE_TIME);
-                _secondsLeft = _secondsLeft - UPDATE_TIME;
+                _secondsLeft -= UPDATE_TIME;
                 updateTimerText();
+                yield return new WaitForSeconds(UPDATE_TIME);
             }
-            onTimeHasPassed?.Invoke();
+            onTimeIsUp?.Invoke();
         }
 
         private void updateTimerText() => _timerText.text = _secondsLeft.ToString();

@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainBall: {fileID: 3320704032076098617}
+  _secondsForComplete: 60
 --- !u!1001 &7271156454691023
 PrefabInstance:
   m_ObjectHideFlags: 0

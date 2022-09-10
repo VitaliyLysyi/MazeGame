@@ -9,21 +9,18 @@ namespace codeBase.game.player
 {
     public class Player : MonoBehaviour
     {
-        private LevelLoader _levelLoader;
         private IControlable _currentControlable;
         private IGameInput _gameInput;
         private Ball _mainBall;
 
         [Inject]
-        private void constructor(IGameInput gameInput, LevelLoader levelLoader)
+        private void constructor(IGameInput gameInput)
         {
             _gameInput = gameInput;
-            _levelLoader = levelLoader;
         }
 
         private void Start()
         {
-            _levelLoader.onLevelLoad += resetMainBall;
             _gameInput.onMainButtonClick += setControllableToMainBall;
         }
 
@@ -48,8 +45,6 @@ namespace codeBase.game.player
             setNewControlable(_mainBall);
         }
 
-        private void setControllableToMainBall() => setNewControlable(_mainBall);
-
         public void setNewControlable(IControlable controlable)
         {
             if (controlable == _currentControlable)
@@ -61,6 +56,14 @@ namespace codeBase.game.player
             _currentControlable = controlable;
             _currentControlable.beginControl(this);
         }
+
+        public void reset(Ball mainBall)
+        {
+            _mainBall = mainBall;
+            setControllableToMainBall();
+        }
+
+        private void setControllableToMainBall() => setNewControlable(_mainBall);
 
         public void beginInteraction(IInteractable interactable) => interactable.interact(this);
     }

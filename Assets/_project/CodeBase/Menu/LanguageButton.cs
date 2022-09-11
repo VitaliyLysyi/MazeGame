@@ -26,19 +26,19 @@ namespace codeBase.menu
         {
             _leftButton.onClick.AddListener(changeLanguage);
             _rightButton.onClick.AddListener(changeLanguage);
-
         }
+
 
         private void changeLanguage()
         {
             int index = Array.IndexOf(Enum.GetValues(typeof(LanguageType)), _currentLanguage);
             index += 1;
 
-            if (index + 1 >= Enum.GetValues(typeof(LanguageType)).Length)
+            if (index >= Enum.GetValues(typeof(LanguageType)).Length)
                 index = 0;
 
+            Debug.Log("index = " + index);
             _currentLanguage = (LanguageType)Enum.GetValues(typeof(LanguageType)).GetValue(index);
-
             updateLanguageLable();
             onLanguageChanged?.Invoke(_currentLanguage);
         }

@@ -34,6 +34,10 @@ MonoBehaviour:
     m_Localized: About Us
     m_Metadata:
       m_Items: []
+  - m_Id: 6026512160161792
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

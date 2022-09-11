@@ -1,5 +1,5 @@
 using codeBase.game.input;
-using codeBase.Menu;
+using codeBase.menu;
 using UnityEngine;
 using Zenject;
 

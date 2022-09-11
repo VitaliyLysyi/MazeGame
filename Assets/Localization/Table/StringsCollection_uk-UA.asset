@@ -34,6 +34,10 @@ MonoBehaviour:
     m_Localized: "\u041F\u0440\u043E \u041D\u0430\u0441"
     m_Metadata:
       m_Items: []
+  - m_Id: 6026512160161792
+    m_Localized: Ukrainian
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

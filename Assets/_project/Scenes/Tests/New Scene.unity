@@ -457,35 +457,40 @@ PrefabInstance:
       propertyPath: m_Name
       value: Settings Window
       objectReference: {fileID: 0}
+    - target: {fileID: 1358776249310077683, guid: 8319c300f4c7d0540b887af108b488e6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4573514539785054720, guid: 8319c300f4c7d0540b887af108b488e6,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4573514539785054720, guid: 8319c300f4c7d0540b887af108b488e6,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4573514539785054720, guid: 8319c300f4c7d0540b887af108b488e6,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6628922506989926820, guid: 8319c300f4c7d0540b887af108b488e6,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6628922506989926820, guid: 8319c300f4c7d0540b887af108b488e6,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6628922506989926820, guid: 8319c300f4c7d0540b887af108b488e6,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8319c300f4c7d0540b887af108b488e6, type: 3}

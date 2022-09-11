@@ -1,6 +1,6 @@
 using codeBase.game.level;
 using codeBase.game.player;
-using codeBase.Menu;
+using codeBase.menu;
 using UnityEngine;
 using Zenject;
 

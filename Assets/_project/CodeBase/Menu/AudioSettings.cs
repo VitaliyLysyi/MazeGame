@@ -9,7 +9,7 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
 
-namespace codeBase.Menu
+namespace codeBase.menu
 {
     [Serializable]
     public class AudioButtonsGroup

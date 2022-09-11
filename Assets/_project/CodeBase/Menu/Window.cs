@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace codeBase.Menu
+namespace codeBase.menu
 {
     public class Window : MonoBehaviour
     {

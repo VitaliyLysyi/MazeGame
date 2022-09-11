@@ -6,13 +6,14 @@ using codeBase.infrastructure.structures;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace codeBase.Menu
+namespace codeBase.menu
 {
     public partial class SettingsMenu : MonoBehaviour
     {
         [SerializeField] private AudioButtonsGroup _musicGroup;
         [SerializeField] private AudioButtonsGroup _soundGroup;
-        [SerializeField] private Toggle _vibrationToggle;
+        [SerializeField] private VibrationButton _vibration;
+        [SerializeField] private LanguageButton _languageButton;
         [SerializeField] private WindowGroup _infoGroup;
 
         private GameSettings _gameSettings;
@@ -24,6 +25,8 @@ namespace codeBase.Menu
             initAudioButtons();
             initVibrationToggle();
             _infoGroup.init();
+            _languageButton.init(_gameSettings.getLanguage());
+            _languageButton.onLanguageChanged += _gameSettings.setLanguage;
         }
 
         private void OnDestroy()
@@ -31,13 +34,14 @@ namespace codeBase.Menu
             _gameSettings.saveData();
             _musicGroup.changeValue -= changeAudioVolume;
             _soundGroup.changeValue -= changeAudioVolume;
-            _vibrationToggle.onValueChanged.RemoveAllListeners();
+            _vibration.isVibrationActive -= vibration;
+            _languageButton.onLanguageChanged -= _gameSettings.setLanguage;
         }
 
         private void initVibrationToggle()
         {
-            _vibrationToggle.isOn = _gameSettings.getVibration();
-            _vibrationToggle.onValueChanged.AddListener(Vibration);
+            _vibration.init(_gameSettings.getVibration());
+            _vibration.isVibrationActive += vibration;
         }
 
         private void initAudioButtons()
@@ -54,6 +58,6 @@ namespace codeBase.Menu
 
         private void changeAudioVolume(string mixerName, float value) => _gameSettings.setMixerVolume(mixerName, value);
 
-        private void Vibration(bool active) => _gameSettings.setVibrationOn(active);
+        private void vibration(bool active) => _gameSettings.setVibrationOn(active);
     }
 }

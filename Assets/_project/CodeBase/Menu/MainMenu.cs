@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace codeBase.Menu
+namespace codeBase.menu
 {
     public class MainMenu : MonoBehaviour
     {

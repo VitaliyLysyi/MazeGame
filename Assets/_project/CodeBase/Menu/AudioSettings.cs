@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using TMPro;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.DebugUI;
 
 namespace codeBase.menu
 {

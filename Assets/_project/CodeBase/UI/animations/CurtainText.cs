@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using codeBase.infrastructure.Coroutines;
 using TMPro;
 using UnityEngine;
 

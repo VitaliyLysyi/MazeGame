@@ -1,10 +1,6 @@
-using System;
 using codeBase.infrastructure;
 using codeBase.infrastructure.constants;
-using codeBase.infrastructure.SaveLoadSystem;
-using codeBase.infrastructure.structures;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace codeBase.menu
 {

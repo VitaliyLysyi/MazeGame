@@ -1,6 +1,4 @@
-﻿using codeBase.infrastructure.Coroutines;
-using codeBase.infrastructure.States;
-using codeBase.Logic;
+﻿using codeBase.infrastructure.States;
 using UnityEngine;
 using Zenject;
 

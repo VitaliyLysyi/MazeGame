@@ -1,15 +1,13 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using codeBase.extansionMethods;
 using UnityEngine;
 
-namespace codeBase
+namespace codeBase.ui.animations
 {
     public class CurtainLabyrinthRotate : MonoBehaviour
     {
-        [SerializeField] private AnimationCurve _rateteCurve;
-        [SerializeField] private float _retateSpeed;
+        [SerializeField] private AnimationCurve _rotateCurve;
+        [SerializeField] private float _rotateSpeed;
         [SerializeField] private Transform[] _rotateElements;
 
         private Coroutine _rotateRoutine;
@@ -37,14 +35,14 @@ namespace codeBase
 
         private IEnumerator rotateRoutine()
         {
-            float step = _rateteCurve.keys.getLastElement().time / _rotateElements.Length;
+            float step = _rotateCurve.keys.getLastElement().time / _rotateElements.Length;
             float rotateSpeed;
 
             while (true)
             {
                 for (int i = 0; i < _rotateElements.Length; i++)
                 {
-                    rotateSpeed = (_retateSpeed * _rateteCurve.Evaluate(step * i)) * Time.deltaTime;
+                    rotateSpeed = (_rotateSpeed * _rotateCurve.Evaluate(step * i)) * Time.deltaTime;
 
                     if ((i % 2) == 0)
                         rotateSpeed *= -1;

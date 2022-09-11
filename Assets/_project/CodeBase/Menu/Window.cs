@@ -56,5 +56,4 @@ namespace codeBase.menu
             window.enterNew(currentWindow);
         }
     }
-
 }

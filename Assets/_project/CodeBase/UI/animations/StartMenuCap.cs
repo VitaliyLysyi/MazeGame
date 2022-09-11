@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using codeBase.ui.animations;
+﻿using System.Collections.Generic;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+
 namespace codeBase.ui.animations
 {
     public class StartMenuCap : MonoBehaviour

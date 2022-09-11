@@ -1,7 +1,5 @@
 using System;
-using System.Diagnostics;
 using codeBase.infrastructure.constants;
-using UnityEngine;
 
 namespace codeBase.infrastructure.structures
 {

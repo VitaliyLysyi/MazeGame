@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace codeBase.ui.animations
@@ -29,7 +28,5 @@ namespace codeBase.ui.animations
 
         [Button]
         public void restartPositionEnd() => _rectTransform.localPosition = _endPosition;
-
-
     }
 }

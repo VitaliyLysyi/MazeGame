@@ -1,4 +1,3 @@
-using System;
 using codeBase.infrastructure;
 using codeBase.infrastructure.constants;
 using codeBase.infrastructure.States;
@@ -32,7 +31,7 @@ namespace codeBase.menu
         private void OnEnable() => _audioButton.audioOn += audioOn;
 
         private void OnDisable() => _audioButton.audioOn -= audioOn;
-        
+
         private void audioOn(bool audioOn)
         {
             float value = audioOn ? 1f : 0.000001f;

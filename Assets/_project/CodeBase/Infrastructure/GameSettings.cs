@@ -26,7 +26,7 @@ namespace codeBase.infrastructure
         {
             SettingsData settings = new SettingsData();
 
-            if (!DataHandler.Load(ref settings))
+            if (!DataHandler.load(ref settings))
             {
                 settings.soundVolume = 1f;
                 settings.musicVolume = 1f;
@@ -68,17 +68,15 @@ namespace codeBase.infrastructure
         public void setLanguage(LanguageType language)
         {
             _settings.language = language;
-            _coroutineRunner.StartCoroutine(changeLanguige(language));
+            _coroutineRunner.StartCoroutine(changeLanguage(language));
         }
 
-        public void saveData() => DataHandler.Save(_settings);
+        public void saveData() => DataHandler.save(_settings);
 
-        private IEnumerator changeLanguige(LanguageType languageType)
+        private IEnumerator changeLanguage(LanguageType languageType)
         {
             yield return LocalizationSettings.InitializationOperation;
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[((int)languageType)];
         }
-
-
     }
 }

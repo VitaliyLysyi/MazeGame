@@ -8,7 +8,7 @@ namespace codeBase.infrastructure.SaveLoadSystem
         private const string DATA_FOLDER = "/Data/";
         private const string FILE_FORMAT = ".json";
 
-        public static void Save<T>(T data) where T : struct
+        public static void save<T>(T data) where T : struct
         {
             string directoryPath = Application.dataPath + DATA_FOLDER;
             string fileName = typeof(T).ToString() + FILE_FORMAT;
@@ -19,7 +19,7 @@ namespace codeBase.infrastructure.SaveLoadSystem
             File.WriteAllText(directoryPath + fileName, json);
         }
 
-        public static bool Load<T>(ref T data) where T : struct 
+        public static bool load<T>(ref T data) where T : struct 
         {
             string directoryPath = Application.dataPath + DATA_FOLDER;
             string fileName = typeof(T).ToString() + FILE_FORMAT;

@@ -1,7 +1,7 @@
 {
     "audioVolume": 1.0,
-    "soundVolume": 0.4317246973514557,
-    "musicVolume": 0.7967333793640137,
+    "soundVolume": 1.0,
+    "musicVolume": 9.999999974752428e-7,
     "vibrationOn": false,
-    "language": 0
+    "language": 1
 }

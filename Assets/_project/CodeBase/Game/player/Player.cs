@@ -1,7 +1,5 @@
 using codeBase.game.ball;
 using codeBase.game.input;
-using codeBase.game.level;
-using codeBase.game.linkedPlatform;
 using UnityEngine;
 using Zenject;
 
@@ -9,7 +7,7 @@ namespace codeBase.game.player
 {
     public class Player : MonoBehaviour
     {
-        private IControlable _currentControlable;
+        private IPlayerControlable _currentControlable;
         private IGameInput _gameInput;
         private Ball _mainBall;
 
@@ -39,13 +37,7 @@ namespace codeBase.game.player
             _currentControlable.control(horixontalAxis, verticalAxis);
         }
 
-        private void resetMainBall(Level level)
-        {
-            _mainBall = level.mainBall;
-            setNewControlable(_mainBall);
-        }
-
-        public void setNewControlable(IControlable controlable)
+        public void setNewControlable(IPlayerControlable controlable)
         {
             if (controlable == _currentControlable)
             {
@@ -64,7 +56,5 @@ namespace codeBase.game.player
         }
 
         private void setControllableToMainBall() => setNewControlable(_mainBall);
-
-        public void beginInteraction(IInteractable interactable) => interactable.interact(this);
     }
 }

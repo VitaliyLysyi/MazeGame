@@ -1,20 +1,40 @@
-using System;
+using System.Collections.Generic;
 using codeBase.game.linkedPlatform;
 using codeBase.game.player;
 using UnityEngine;
 
 namespace codeBase.game.ball
 {
-    public class Ball : MonoBehaviour, IControlable
+    public class Ball : MonoBehaviour, IPlayerControlable
     {
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private BallSettings _ballSettings;
+        [SerializeField] private List<Collider> _ignoreColiders;
 
-        public event Action<IInteractable> onBeginInteract;
+        private Player _player;
+
+        private void Start()
+        {
+            setUpIgnoreColiders();
+        }
+
+        private void setUpIgnoreColiders()
+        {
+            if (_ignoreColiders == null)
+            {
+                return;
+            }
+
+            Collider collider = GetComponent<Collider>();
+            foreach (Collider ignoreCollider in _ignoreColiders)
+            {
+                Physics.IgnoreCollision(collider, ignoreCollider);
+            }
+        }
 
         public void beginControl(Player player)
         {
-            onBeginInteract += player.beginInteraction;
+            _player = player;
         }
 
         public void control(float horizontalAxis, float verticalAxis)
@@ -31,16 +51,20 @@ namespace codeBase.game.ball
 
         public void endControl(Player player)
         {
-            onBeginInteract -= player.beginInteraction;
+            _player = null;
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            IInteractable interacteble = other.GetComponent<IInteractable>();
-            if (interacteble != null)
+            IBallInteractable interactableObject = other.GetComponent<IBallInteractable>();
+            if (interactableObject != null)
             {
-                onBeginInteract?.Invoke(interacteble);
+                interactableObject.interact(this);
             }
         }
+
+        public Player player => _player;
+
+        public bool isControled() => _player != null ? true : false;
     }
 }

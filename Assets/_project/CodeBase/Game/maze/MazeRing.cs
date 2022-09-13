@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace codeBase.game.maze
 {
-    public class MazeRing : MonoBehaviour, IControlable
+    public class MazeRing : MonoBehaviour, IPlayerControlable
     {
         [SerializeField] private MazeRingSettings _mazeRingSettings;
         [SerializeField] private bool _selfRotation;

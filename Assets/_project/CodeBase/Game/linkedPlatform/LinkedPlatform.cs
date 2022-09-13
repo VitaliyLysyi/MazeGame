@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace codeBase.game.linkedPlatform
 {
-    public class LinkedPlatform : MonoBehaviour, IInteractable
+    public class LinkedPlatform : MonoBehaviour, IBallInteractable
     {
         [SerializeField] private GameObject _linkedObject;
 
@@ -17,11 +17,18 @@ namespace codeBase.game.linkedPlatform
             }
         }
 
-        public void interact(Player player)
+        public void interact(Ball ball)
         {
-            IControlable controlable = _linkedObject.GetComponent<IControlable>();
+            bool ballNotInControl = !ball.isControled();
+            if (ballNotInControl)
+            {
+                return;
+            }
+
+            IPlayerControlable controlable = _linkedObject.GetComponent<IPlayerControlable>();
             if (controlable != null)
             {
+                Player player = ball.player;
                 player.setNewControlable(controlable);
             }
         }

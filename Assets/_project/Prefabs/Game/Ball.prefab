@@ -76,8 +76,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f0638e056d4e848a08927abbc98711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: {fileID: 5967403560412833440}
   _rigidbody: {fileID: 3318123426636168432}
   _ballSettings: {fileID: 11400000, guid: 5d3506f27f894a44cb37fefeefedd830, type: 2}
+  _ignoreColiders: []
 --- !u!1 &3318123426671359289
 GameObject:
   m_ObjectHideFlags: 0

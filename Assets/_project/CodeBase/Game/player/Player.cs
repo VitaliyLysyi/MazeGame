@@ -46,7 +46,7 @@ namespace codeBase.game.player
 
             _currentControlable?.endControl(this);
             _currentControlable = controlable;
-            _currentControlable.beginControl(this);
+            _currentControlable?.beginControl(this);
         }
 
         public void reset(Ball mainBall)

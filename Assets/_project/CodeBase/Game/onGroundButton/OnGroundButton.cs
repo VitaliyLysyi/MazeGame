@@ -19,19 +19,10 @@ namespace codeBase.game.onGroundButton
             triggerExit(other);
         }
 
-        protected virtual void triggerEnter(Collider otherCollider)
-        {
+        protected virtual void triggerEnter(Collider otherCollider) { }
 
-        }
+        protected virtual void triggerStay(Collider otherCollider) { }
 
-        protected virtual void triggerStay(Collider otherCollider)
-        {
-
-        }
-
-        protected virtual void triggerExit(Collider otherCollider)
-        {
-
-        }
+        protected virtual void triggerExit(Collider otherCollider) { }
     }
 }

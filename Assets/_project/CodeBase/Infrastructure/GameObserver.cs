@@ -34,26 +34,25 @@ namespace codeBase.infrastructure
 
         private void Start()
         {
-            _levelLoader.onLevelLoaded += reset;
-            _timer.onTimeIsUp += onLevelFailed;
+            _levelLoader.onLevelLoaded += resetAll;
 
             _summaryWindow.onNextLevelClick += nextLevel;
             _summaryWindow.onRestartClick += restartLevel;
             _summaryWindow.onToMenuClick += toMenu;
 
-            startAtLevel(_startLevel);
+            startFromLevel(_startLevel);
         }
 
-        public void startAtLevel(int index)
+        public void startFromLevel(int index)
         {
             _levelLoader.loadLevel(index);
         }
 
-        private void reset(Level level)
+        private void resetAll(Level level)
         {
             _player.reset(level.mainBall);
 
-            _timer.reset(level.secondsForComplete);
+            _timer.reset();
             _timer.run();
 
             _scoreCounter.reset();
@@ -61,19 +60,21 @@ namespace codeBase.infrastructure
             if (_currentLevelLoaded != null)
             {
                 _currentLevelLoaded.onLevelCommplete -= onLevelComplete;
+                _currentLevelLoaded.onLevelFailed -= onLevelFailed;
             }
             _currentLevelLoaded = level;
             _currentLevelLoaded.onLevelCommplete += onLevelComplete;
+            _currentLevelLoaded.onLevelFailed += onLevelFailed;
         }
 
-        private void onLevelComplete() => _summaryWindow.show(true);
+        private void onLevelComplete() => _summaryWindow.showWin();
 
-        private void onLevelFailed() => _summaryWindow.show(false);
+        private void onLevelFailed() => _summaryWindow.showFailed();
 
         private void restartLevel() => _levelLoader.reload();
 
         private void nextLevel() => _levelLoader.nextLevel();
 
-        private void toMenu() => Debug.Log("Return to Menu need realization!");
+        private void toMenu() => Debug.LogWarning("Return to Menu need realization!");
     }
 }

@@ -21,42 +21,21 @@ namespace codeBase.infrastructure.zenjectInstaller
 
         public override void InstallBindings()
         {
-#if UNITY_EDITOR
-            editorInput();
-#else
             input();
-#endif
-
             timer();
             scoreCounter();
             summaryWindow();
         }
 
-#if UNITY_EDITOR
-        private void editorInput()
-        {
-            IGameInput input;
-            if (_debugInputMode)
-            {
-                input = Container.InstantiatePrefabForComponent<IGameInput>(_debugInputPrefab, _canvas.transform);
-            }
-            else
-            {
-                input = Container.InstantiatePrefabForComponent<IGameInput>(_androidInputPrefab, _canvas.transform);
-            }
-
-            Container
-                .Bind<IGameInput>()
-                .FromInstance(input)
-                .AsSingle()
-                .NonLazy();
-        }
-#endif
-
         private void input()
         {
+#if UNITY_EDITOR
+            IGameInput input = _debugInputMode ?
+                Container.InstantiatePrefabForComponent<IGameInput>(_debugInputPrefab, _canvas.transform) :
+                Container.InstantiatePrefabForComponent<IGameInput>(_androidInputPrefab, _canvas.transform);
+#else
             IGameInput input = Container.InstantiatePrefabForComponent<IGameInput>(_androidInputPrefab, _canvas.transform);
-
+#endif
             Container
                 .Bind<IGameInput>()
                 .FromInstance(input)

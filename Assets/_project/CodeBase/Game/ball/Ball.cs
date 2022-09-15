@@ -63,7 +63,7 @@ namespace codeBase.game.ball
             Vector3 endPosition = transform.position + Vector3.up * 3f;
             Vector3 endScale = transform.localScale + Vector3.one;
             DOTween.Sequence()
-                .Append(transform.DOScale(endScale, 2f))
+                .Append(transform.DOScale(endScale, 2f).SetEase(Ease.InBounce))
                 .Join(transform.DOMove(endPosition, 2f))
                 .Join(transform.DOShakeRotation(2f, 1f))
                 .AppendCallback(() => Destroy(gameObject));

@@ -24,14 +24,16 @@ namespace codeBase.game.player
 
         private void Update()
         {
-            if (_currentControlable != null)
-            {
-                controllCharacter();
-            }
+            controllCharacter();
         }
 
         private void controllCharacter()
         {
+            if (_currentControlable == null)
+            {
+                return;
+            }
+
             float horixontalAxis = _gameInput.horizontalAxis();
             float verticalAxis = _gameInput.verticalAxis();
             _currentControlable.control(horixontalAxis, verticalAxis);

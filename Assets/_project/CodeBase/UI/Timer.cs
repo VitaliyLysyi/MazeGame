@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -9,38 +8,39 @@ namespace codeBase
     {
         [SerializeField] private TextMeshProUGUI _timerText;
 
-        private const float UPDATE_TIME = 1f;
+        private const float SECONDS_TO_UPDATE = 1f;
 
-        private IEnumerator _timerRunCoroutine;
-        private float _secondsLeft;
+        private IEnumerator _timerRunRoutine;
+        private float _seconds;  
 
-        public event Action onTimeIsUp;
-
-        private void Start()
+        private IEnumerator timerRunRoutine()
         {
-            _timerRunCoroutine = timerRunCoroutine();
-        }
-
-        private IEnumerator timerRunCoroutine()
-        {
-            while (_secondsLeft > 0)
+            while (true)
             {
-                yield return new WaitForSeconds(UPDATE_TIME);
-                _secondsLeft -= UPDATE_TIME;
-                updateTimerText();
+                yield return new WaitForSeconds(SECONDS_TO_UPDATE);
+                _seconds += SECONDS_TO_UPDATE;
+                updateText();
             }
-            onTimeIsUp?.Invoke();
         }
 
-        private void updateTimerText() => _timerText.text = _secondsLeft.ToString();
+        public void run() => StartCoroutine(_timerRunRoutine);
 
-        public void run() => StartCoroutine(_timerRunCoroutine);
-
-        public void reset(float seconds)
+        public void reset()
         {
-            StopCoroutine(_timerRunCoroutine);
-            _secondsLeft = seconds;
-            updateTimerText();
+            resetRoutine();
+            _seconds = 0;
+            updateText();
+        }
+
+        private void updateText() => _timerText.text = _seconds.ToString();
+
+        private void resetRoutine()
+        {
+            if (_timerRunRoutine != null)
+            {
+                StopCoroutine(_timerRunRoutine);
+            }
+            _timerRunRoutine = timerRunRoutine();
         }
     }
 }

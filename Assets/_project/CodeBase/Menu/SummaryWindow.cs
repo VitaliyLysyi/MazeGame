@@ -25,20 +25,19 @@ namespace codeBase.menu
             _toMenu.onClick.AddListener(onToMenuClickInvoke);
         }
 
-        public void show(bool levelComplete)
+        public void showWin()
         {
             gameObject.SetActive(true);
+            _nextLevel.gameObject.SetActive(true);
+            _summaryText.text = "LEVEL PASSED!";
 
-            if (levelComplete)
-            {
-                _nextLevel.gameObject.SetActive(true);
-                _summaryText.text = "LEVEL PASSED!";
-            }
-            else
-            {
-                _nextLevel.gameObject.SetActive(false);
-                _summaryText.text = "LEVEL FAILED!";
-            }
+        }
+
+        public void showFailed()
+        {
+            gameObject.SetActive(true);
+            _nextLevel.gameObject.SetActive(false);
+            _summaryText.text = "LEVEL FAILED!";
         }
 
         private void onRestartClickInvoke()

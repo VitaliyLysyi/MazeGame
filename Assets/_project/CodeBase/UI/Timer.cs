@@ -32,7 +32,7 @@ namespace codeBase
             updateText();
         }
 
-        private void updateText() => _timerText.text = _seconds.ToString();
+        private void updateText() => _timerText.text = "Time: " + _seconds.ToString();
 
         private void resetRoutine()
         {

@@ -57,9 +57,14 @@ namespace codeBase.game.ball
 
             if (isControled())
             {
+                _player.ballDestroyed();
                 _player.setNewControlable(null);
             }
+            destroyAnimation();
+        }
 
+        private void destroyAnimation()
+        {
             Vector3 endPosition = transform.position + Vector3.up * 3f;
             Vector3 endScale = transform.localScale + Vector3.one;
             DOTween.Sequence()
@@ -68,6 +73,16 @@ namespace codeBase.game.ball
                 .Join(transform.DOShakeRotation(2f, 1f))
                 .AppendCallback(() => Destroy(gameObject));
         }
+
+        public void stayAtPosition(Vector3 position)
+        {
+            resetVelocity();
+
+            //DOTween.Sequence()
+            //    .Append(transform.DOMove(position, 1f));
+        }
+
+        private void resetVelocity() => _rigidbody.velocity = Vector3.zero;
 
         public Player player => _player;
 

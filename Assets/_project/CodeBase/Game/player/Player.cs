@@ -1,3 +1,4 @@
+using System;
 using codeBase.game.ball;
 using codeBase.game.input;
 using UnityEngine;
@@ -10,6 +11,9 @@ namespace codeBase.game.player
         private IPlayerControlable _currentControlable;
         private IGameInput _gameInput;
         private Ball _mainBall;
+
+        public event Action onScorePick;
+        public event Action onBallDestroyed;
 
         [Inject]
         private void constructor(IGameInput gameInput)
@@ -56,6 +60,10 @@ namespace codeBase.game.player
             _mainBall = mainBall;
             setControllableToMainBall();
         }
+
+        public void scorePick() => onScorePick?.Invoke();
+
+        public void ballDestroyed() => onBallDestroyed?.Invoke();
 
         private void setControllableToMainBall() => setNewControlable(_mainBall);
     }

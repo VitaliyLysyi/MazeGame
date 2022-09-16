@@ -34,13 +34,20 @@ namespace codeBase.infrastructure
 
         private void Start()
         {
+            subscribeForEvents();
+            startFromLevel(_startLevel);
+        }
+
+        private void subscribeForEvents()
+        {
             _levelLoader.onLevelLoaded += resetAll;
 
             _summaryWindow.onNextLevelClick += nextLevel;
             _summaryWindow.onRestartClick += restartLevel;
             _summaryWindow.onToMenuClick += toMenu;
 
-            startFromLevel(_startLevel);
+            _player.onScorePick += scoreIncrease;
+            _player.onBallDestroyed += levelFailed;
         }
 
         public void startFromLevel(int index)
@@ -59,17 +66,19 @@ namespace codeBase.infrastructure
 
             if (_currentLevelLoaded != null)
             {
-                _currentLevelLoaded.onLevelCommplete -= onLevelComplete;
-                _currentLevelLoaded.onLevelFailed -= onLevelFailed;
+                _currentLevelLoaded.onLevelCommplete -= levelComplete;
+                _currentLevelLoaded.onLevelFailed -= levelFailed;
             }
             _currentLevelLoaded = level;
-            _currentLevelLoaded.onLevelCommplete += onLevelComplete;
-            _currentLevelLoaded.onLevelFailed += onLevelFailed;
+            _currentLevelLoaded.onLevelCommplete += levelComplete;
+            _currentLevelLoaded.onLevelFailed += levelFailed;
         }
 
-        private void onLevelComplete() => _summaryWindow.showWin();
+        private void scoreIncrease() => _scoreCounter.increase();
 
-        private void onLevelFailed() => _summaryWindow.showFailed();
+        private void levelComplete() => _summaryWindow.showWin();
+
+        private void levelFailed() => _summaryWindow.showFailed();
 
         private void restartLevel() => _levelLoader.reload();
 

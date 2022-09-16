@@ -10,9 +10,8 @@ namespace codeBase
     {
         [SerializeField] private GameObject _spikes;
         [SerializeField] private bool _nonStatic;
-        [SerializeField, ShowIf("_nonStatic")] private float _secondsInterval = 1f;
-        [SerializeField, ShowIf("_nonStatic")] private float _secondsDelay = 1f;
-
+        [SerializeField, ShowIf("_nonStatic")] private float _secondsInterval = 2f;
+        [SerializeField, ShowIf("_nonStatic")] private float _secondsDelay = 2f;
 
         private bool _spikesEnabled = true;
 

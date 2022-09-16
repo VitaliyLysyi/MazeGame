@@ -21,6 +21,6 @@ namespace codeBase
             updateText();
         }
 
-        private void updateText() => _scoreText.text = _currentScore.ToString();
+        private void updateText() => _scoreText.text = "Score: " + _currentScore.ToString();
     }
 }

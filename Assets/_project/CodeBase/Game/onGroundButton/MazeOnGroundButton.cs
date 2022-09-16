@@ -26,6 +26,9 @@ namespace codeBase.game.onGroundButton
             {
                 Player player = ball.player;
                 player.setNewControlable(_mazeRing);
+
+                Vector3 stayPosition = transform.position + Vector3.up * 0.5f;
+                ball.stayAtPosition(stayPosition);
             }
         }
     }

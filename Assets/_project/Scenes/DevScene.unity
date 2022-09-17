@@ -631,7 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf814fc7f67a4384ea1993807bf265a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _debugInputMode: 1
+  _debugInputMode: 0
   _debugInputPrefab: {fileID: 1685607804341373187, guid: 12b3faf2bc7de4b489f28484ec797b09,
     type: 3}
   _canvas: {fileID: 1016687975}

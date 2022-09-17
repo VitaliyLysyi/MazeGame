@@ -54,7 +54,7 @@ namespace codeBase.menu
 
         private void onToMenuClickInvoke()
         {
-            hide();
+            //hide();
             onToMenuClick?.Invoke();
         }
 

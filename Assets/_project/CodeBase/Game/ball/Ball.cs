@@ -40,7 +40,7 @@ namespace codeBase.game.ball
         public void control(float horizontalAxis, float verticalAxis)
         {
             float sensitivity = _ballSettings.controlSensitivity;
-            Vector3 direction = new Vector3(horizontalAxis, 0f, verticalAxis) * sensitivity;
+            Vector3 direction = new Vector3(horizontalAxis, 0f, verticalAxis) * sensitivity * Time.deltaTime;
             _rigidbody.AddForce(direction);
         }
 
@@ -76,13 +76,17 @@ namespace codeBase.game.ball
 
         public void stayAtPosition(Vector3 position)
         {
-            resetVelocity();
-
-            //DOTween.Sequence()
-            //    .Append(transform.DOMove(position, 1f));
+            //resetVelocity();
+            DOTween.Sequence()
+                .Append(transform.DOMove(position, 1f))
+                .AppendCallback(resetVelocity);
         }
 
-        private void resetVelocity() => _rigidbody.velocity = Vector3.zero;
+        private void resetVelocity()
+        {
+            _rigidbody.velocity = Vector3.zero;
+            _rigidbody.angularVelocity = Vector3.zero;
+        }
 
         public Player player => _player;
 

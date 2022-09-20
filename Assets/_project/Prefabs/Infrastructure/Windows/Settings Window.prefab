@@ -1045,11 +1045,11 @@ MonoBehaviour:
     - sprite: {fileID: 21300000, guid: b4167e43419b86c40aa9ec39694cf279, type: 3}
       normalizedValue: 0
     - sprite: {fileID: 21300000, guid: 4f311b34271aa8841bf9813ce79459d7, type: 3}
-      normalizedValue: 0.33
+      normalizedValue: 0.01
     - sprite: {fileID: 21300000, guid: 040064f9487c9da43a65507739f6fc15, type: 3}
-      normalizedValue: 0.66
+      normalizedValue: 0.33
     - sprite: {fileID: 21300000, guid: 83c3f0e6359e7d946b8c62da897d87b0, type: 3}
-      normalizedValue: 1
+      normalizedValue: 0.66
   _vibration: {fileID: 1551149684031307466}
   _languageButton: {fileID: 6672032649817542628}
   _infoGroup:
@@ -1325,8 +1325,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: About Us
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eb6b4bb4055841045ac3493ce918deb5, type: 2}
-  m_sharedMaterial: {fileID: 481859391622295270, guid: eb6b4bb4055841045ac3493ce918deb5,
+  m_fontAsset: {fileID: 11400000, guid: 19272b032fe8c2047b83005224d50d87, type: 2}
+  m_sharedMaterial: {fileID: 264184848544532139, guid: 19272b032fe8c2047b83005224d50d87,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2979,8 +2979,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: English
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eb6b4bb4055841045ac3493ce918deb5, type: 2}
-  m_sharedMaterial: {fileID: 481859391622295270, guid: eb6b4bb4055841045ac3493ce918deb5,
+  m_fontAsset: {fileID: 11400000, guid: 19272b032fe8c2047b83005224d50d87, type: 2}
+  m_sharedMaterial: {fileID: 264184848544532139, guid: 19272b032fe8c2047b83005224d50d87,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

@@ -63,7 +63,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainBall: {fileID: 8812538584223571256}
-  _secondsForComplete: 60
+  _secondsForGold: 0
+  _secondsForSilver: 0
+  _secondsForBronze: 0
 --- !u!1001 &26425903306085639
 PrefabInstance:
   m_ObjectHideFlags: 0

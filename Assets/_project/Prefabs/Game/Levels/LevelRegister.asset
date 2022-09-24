@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: LevelRegister
   m_EditorClassIdentifier: 
   _levelPrefabs:
+  - {fileID: 3216242535030956043, guid: ca5a2fdd01dcd2544a1734fcf197fb2b, type: 3}
+  - {fileID: 4273285248778220539, guid: cc82e6654d97e514f89cdf707e49f156, type: 3}
+  - {fileID: 8719322259109897559, guid: 07999292b27c05e45a866d507d0434d3, type: 3}
   - {fileID: 2305690994392404737, guid: 6360badf00dc4f047a574a5d18c44aae, type: 3}
   - {fileID: 1918006911880480115, guid: 9b1f59835065a1b458bc282d07f09d35, type: 3}
   - {fileID: 5125266987404020401, guid: 7dac7ff358336424b9726169fa08978c, type: 3}

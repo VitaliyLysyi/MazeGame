@@ -34,6 +34,8 @@ namespace codeBase.infrastructure
 
         private void Start()
         {
+            Application.targetFrameRate = 60;
+
             subscribeForEvents();
             startFromLevel(_startLevel);
         }

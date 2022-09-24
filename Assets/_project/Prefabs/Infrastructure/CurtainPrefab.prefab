@@ -34,7 +34,7 @@ RectTransform:
   - {fileID: 2180829069096242851}
   - {fileID: 8413929948119584478}
   m_Father: {fileID: 4289567975452362361}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -267,7 +267,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4289567975452362361}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -417,7 +417,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3371617467637279612}
   - {fileID: 8602989028532930388}
   - {fileID: 7288683522965731097}
   m_Father: {fileID: 4289567976331335725}
@@ -574,84 +573,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!1 &4461890119274539562
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3371617467637279612}
-  - component: {fileID: 5645495410641412491}
-  - component: {fileID: 5645495410641412490}
-  m_Layer: 5
-  m_Name: Particles
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &3371617467637279612
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4461890119274539562}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4289567975452362361}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5645495410641412491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4461890119274539562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f9b0e713c89c37409894c765ffdc6f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dotParticlePrefab: {fileID: 2903209318338942157, guid: 44ac52e8cf721664182f559657bf4e89,
-    type: 3}
-  _spawnTransform: {fileID: 3371617467637279612}
-  _maxParticleCount: 50
-  _maxParticleCountOnTick: 2
-  _lifeTimeRange: {x: 2, y: 3}
-  _spawnTime: 0.6
-  _canvas: {fileID: 4289567976331335724}
---- !u!114 &5645495410641412490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4461890119274539562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 545cc4a0e322f0147a4fa98aa019b15c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _lineParticlePrefab: {fileID: 4318150161628810294, guid: 7937f9da433bfcb42ab0aedc58e3249f,
-    type: 3}
-  _spawnTransform: {fileID: 3371617467637279612}
-  _maxParticleCount: 20
-  _maxParticleCountOnTick: 2
-  _moveSpeedRange: {x: 10, y: 40}
-  _spawnTime: 1
-  _canvas: {fileID: 4289567976331335724}
 --- !u!1 &5024371089846151038
 GameObject:
   m_ObjectHideFlags: 0

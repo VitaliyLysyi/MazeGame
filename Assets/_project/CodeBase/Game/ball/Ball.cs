@@ -49,6 +49,8 @@ namespace codeBase.game.ball
             _player = null;
         }
 
+        public ControlType controlType() => ControlType.AllAxis;
+
         public void destroy()
         {
             _rigidbody.isKinematic = true;

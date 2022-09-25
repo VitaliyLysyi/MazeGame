@@ -38,9 +38,9 @@ namespace codeBase.game.player
                 return;
             }
 
-            float horixontalAxis = _gameInput.horizontalAxis();
-            float verticalAxis = _gameInput.verticalAxis();
-            _currentControlable.control(horixontalAxis, verticalAxis);
+            bool usesHorizontal = _currentControlable.controlType() == ControlType.Horizontal;
+            Vector2 axisVector = usesHorizontal ? new Vector2(_gameInput.horizontalAxis(), 0f) : _gameInput.axisVector();
+            _currentControlable.control(axisVector.x, axisVector.y);
         }
 
         public void setNewControlable(IPlayerControlable controlable)

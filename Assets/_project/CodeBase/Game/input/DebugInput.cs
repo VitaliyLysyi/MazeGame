@@ -18,5 +18,7 @@ namespace codeBase.game.input
         public float horizontalAxis() => Input.GetAxis("Horizontal");
 
         public float verticalAxis() => Input.GetAxis("Vertical");
+
+        public Vector2 axisVector() => new Vector2(verticalAxis(), horizontalAxis());
     }
 }

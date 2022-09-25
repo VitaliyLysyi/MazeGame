@@ -40,5 +40,7 @@ namespace codeBase.game.maze
         {
 
         }
+
+        public ControlType controlType() => ControlType.Horizontal;
     }
 }

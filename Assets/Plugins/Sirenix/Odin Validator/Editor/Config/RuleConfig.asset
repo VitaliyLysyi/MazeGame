@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: RuleConfig
   m_EditorClassIdentifier: 
   projectRules:
-  - Enabled: 1
+  - Enabled: 0
     EnabledOverridden: 1
     Type: Sirenix.OdinValidator.Editor.Validators.ShaderCompilerErrorsValidator,
       Sirenix.OdinValidator.Editor
     Override: "{\r\n    \"$id\": 0,\r\n    \"$type\": \"0|Sirenix.OdinValidator.Editor.Validators.ShaderCompilerErrorsValidator,
-      Sirenix.OdinValidator.Editor\",\r\n    \"Severity\": 0,\r\n    \"IgnoredShaders\":
+      Sirenix.OdinValidator.Editor\",\r\n    \"Severity\": 2,\r\n    \"IgnoredShaders\":
       {\r\n        \"$id\": 1,\r\n        \"$type\": \"1|UnityEngine.Shader[], UnityEngine.CoreModule\",\r\n       
       \"$rlength\": 0,\r\n        \"$rcontent\": [\r\n        ]\r\n    }\r\n}"
   - Enabled: 1

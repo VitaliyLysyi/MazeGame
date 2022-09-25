@@ -63,7 +63,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainBall: {fileID: 8812538584223571256}
-  _secondsForComplete: 60
+  _secondsForGold: 0
+  _secondsForSilver: 0
+  _secondsForBronze: 0
 --- !u!1001 &26425903306085639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,6 +148,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5676732905371137933}
     m_Modifications:
+    - target: {fileID: 1557403361027124830, guid: 637ec6b757fdc9247a978b3637c6ee42,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6110315158698687244, guid: 0bf3250df747c854eb8430cf6dc8e3e2,
+        type: 3}
     - target: {fileID: 2371468329343634327, guid: 637ec6b757fdc9247a978b3637c6ee42,
         type: 3}
       propertyPath: m_RootOrder

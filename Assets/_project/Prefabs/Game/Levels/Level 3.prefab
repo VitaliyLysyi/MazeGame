@@ -67,7 +67,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainBall: {fileID: 3399190566968655537}
-  _secondsForComplete: 60
+  _secondsForGold: 0
+  _secondsForSilver: 0
+  _secondsForBronze: 0
 --- !u!1 &3519252096412099963
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +418,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 3508079421770323597, guid: 637ec6b757fdc9247a978b3637c6ee42,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6110315158698687244, guid: 0bf3250df747c854eb8430cf6dc8e3e2,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 637ec6b757fdc9247a978b3637c6ee42, type: 3}
 --- !u!4 &3996182079557428956 stripped

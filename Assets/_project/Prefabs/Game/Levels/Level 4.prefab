@@ -163,7 +163,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainBall: {fileID: 2181989400302727643}
-  _secondsForComplete: 60
+  _secondsForGold: 0
+  _secondsForSilver: 0
+  _secondsForBronze: 0
 --- !u!1 &5179784515289516679
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,6 +445,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3083937059208764270}
     m_Modifications:
+    - target: {fileID: 1557403361027124830, guid: 637ec6b757fdc9247a978b3637c6ee42,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6110315158698687244, guid: 0bf3250df747c854eb8430cf6dc8e3e2,
+        type: 3}
     - target: {fileID: 2371468329343634327, guid: 637ec6b757fdc9247a978b3637c6ee42,
         type: 3}
       propertyPath: m_RootOrder
@@ -700,6 +708,11 @@ PrefabInstance:
       propertyPath: _selfRotation
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6322508765406894127, guid: 8586cd907ee108b44a6a8a342b1f5b13,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 7015571375575679075, guid: 8586cd907ee108b44a6a8a342b1f5b13,
         type: 3}
       propertyPath: m_LocalRotation.w

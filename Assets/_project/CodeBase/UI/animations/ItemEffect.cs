@@ -18,15 +18,18 @@ namespace codeBase
         [Button]
         private void Start()
         {
-            _startPosition = transform.position;
-            transform.position = getInitPosition();
-            transform.DOMove(_startPosition, _duretion).SetEase(_ease).SetLink(gameObject);
+            Debug.Log(0);
+            _startPosition = transform.localPosition;
+            transform.localPosition += getInitPosition();
+            Debug.Log(transform.localPosition);
+            transform.DOLocalMove(_startPosition, _duretion).SetEase(_ease).SetLink(gameObject);
         }
 
         private Vector3 getInitPosition()
         {
-            Vector3 sideSize = _initDirection * _canvas.rect.size;
-            Vector3 mySize = (transform as RectTransform).rect.size;
+            Vector3 currentPos = transform.localPosition;
+            Vector3 sideSize = _initDirection * (_canvas.rect.size - (Vector2)currentPos);
+            Vector3 mySize = ((transform as RectTransform).rect.size / 2) * _initDirection;
             return sideSize + mySize;
         }
     }
